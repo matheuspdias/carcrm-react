@@ -12,22 +12,22 @@ const NotifyReducer = (state = initialState, action) => {
     switch(action.type) {
         case 'SET_OPEN':
             return { ...state, open:action.payload.open }
-        break;
+        
         case 'SET_HORIZONTAL':
             return { ...state, horizontal:action.payload.horizontal }
-        break;
+        
         case 'SET_VERTICAL':
             return { ...state, vertical:action.payload.vertical }
-        break;
+        
         case 'SET_TIME':
             return { ...state, time:action.payload.time }
-        break;
+        
         case 'SET_MSG':
             return { ...state, msg:action.payload.msg }
-        break;
+        
+        default:
+            return state;
     }
-
-    return state;
 };
 
 export default NotifyReducer;
