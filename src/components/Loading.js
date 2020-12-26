@@ -9,7 +9,7 @@ export default function Loading() {
     return (
         <Modal
             open={loading.open}
-            onClose={() => dispatch({type:'SET_MODAL',payload: { open:false }}) }
+            onClose={() => dispatch({type:'SET_LOADING',payload: { open:false }}) }
             className="d-flex justify-content-center align-items-center h-100"
         >
             <div className="bg-white d-flex align-items-center rounded p-3">

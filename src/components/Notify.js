@@ -26,7 +26,7 @@ export default function Notify() {
             }}
             open={notify.open}
             autoHideDuration={notify.time}
-            onClose={() => dispatch({type: 'SET_OPEN', payload: {open: false}}) }
+            onClose={() => dispatch({type: 'SET_NOTIFY', payload: {open: false}}) }
         >
             <SnackbarContent 
                 className={classes[notify.class] + ' d-flex justify-content-center'}
