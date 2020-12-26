@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { Typography, TextField, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
 import Api from '../../Api';
 
 export default function Auth() {
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const [emailField, setEmailField] = useState('');
@@ -19,7 +21,7 @@ export default function Auth() {
         if(res.error === '') {    
             localStorage.setItem('token', res.token);
             dispatch({type: 'SET_TOKEN', payload: {token: res.token } });
-            <Redirect to="/vehicles" />
+            history.replace('/vehicles');
         } else {            
             dispatch({type: 'SET_NOTIFY', payload: {open:true} });
             dispatch({type: 'SET_CLASS', payload: {class:'error'} });
@@ -27,6 +29,17 @@ export default function Auth() {
         }
         dispatch({type: 'SET_LOADING', payload: {open:false} });
     }
+
+    const RegisterButton = withStyles({
+        root: {
+            color: '#FFF',
+            backgroundColor: '#28A745',
+            '&:hover': {
+                backgroundColor: '#218838',
+                color: '#FFF'
+            } 
+        }
+    })(Button)
 
     return (
         <div className="d-flex bg-white min-vh-100">
@@ -42,6 +55,7 @@ export default function Auth() {
                             type="email"
                             autoComplete="email"
                             margin="normal"
+                            variant="standard"
                             value={emailField}
                             onChange={t=> setEmailField(t.target.value)}
                         />
@@ -50,6 +64,7 @@ export default function Auth() {
                             label="Senha"
                             type="password"
                             margin="normal"
+                            variant="standard"
                             value={passwordField}
                             onChange={t=> setPasswordField(t.target.value)}
                         />
@@ -64,6 +79,17 @@ export default function Auth() {
                         >
                             Entrar
                         </Button>
+
+                        <RegisterButton
+                            component={Link}
+                            to="/register"
+                            variant="contained"
+                            fullWidth
+                            size="large"
+                            className="mt-4 mb-4"
+                        >
+                            Cadastrar
+                        </RegisterButton>
                     </div>
                 </div>
             </div>

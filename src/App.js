@@ -7,7 +7,7 @@ import './global.css';
 import { blue } from '@material-ui/core/colors';
 import Routes from './Routes';
 
-import { Loading, Notify, Alert, Confirm } from './components'
+import { Loading, Notify, Alert } from './components'
 
 const theme = createMuiTheme({
   palette: {
