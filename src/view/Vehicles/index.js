@@ -1,9 +1,10 @@
 import React from 'react'
+import Header from '../../components/Header';
 
 export default function Vehicles() {
     return (
-        <div>
-            Veiculos
-        </div>
+        <>
+            <Header title="Veiculos" />
+        </>
     )
 }

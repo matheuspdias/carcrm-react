@@ -29,11 +29,6 @@ export default function Register() {
             history.replace('/vehicles');
         } else {   
             setErrors(res.error);
-            /*         
-            dispatch({type: 'SET_NOTIFY', payload: {open:true} });
-            dispatch({type: 'SET_CLASS', payload: {class:'error'} });
-            dispatch({type: 'SET_MSG_NOTIFY', payload: {msg: res.error.name} });
-            */
         }
         dispatch({type: 'SET_LOADING', payload: {open:false} });
     }
